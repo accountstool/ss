@@ -1,0 +1,7 @@
+Phần 1: Bảng so sánh Absolute Path và Relative Path
+  Absolute Path (C:\Users\An-K26\FarmProject\data\logs.csv) dài chứa toàn bộ cấu trúc thư mục từ ổ đĩa gốc. Dễ lỗi khi đem qua máy khác (tính di động thấp)
+  Relative Path (../data/logs.csv) ngắn gọn, chỉ tính từ vị trí tệp tin hiện tại. Linh hoạt, hoạt động tốt hơn khi đem qua máy khác (tính di động cao)
+Phần 2: Lựa chọn giải pháp và ý nghĩa kí hiệu
+  Nên chọn Relative Path bởi vì nó sẽ linh hoạt tối ưu tốt hơn so với Absolute Path
+  Kí hiệu .. đại diện cho thư mục cha tức là đi ngược lên một cấp thư mục so với thư mục làm việc hiện tại
+ 
