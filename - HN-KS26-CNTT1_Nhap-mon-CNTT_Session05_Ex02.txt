@@ -1,0 +1,29 @@
+
+ PHƯƠNG ÁN 1: HỆ ĐIỀU HÀNH LINUX / MAC (BASH / ZSH)
+
+Đoạn kịch bản hoàn chỉnh:
+
+mkdir drink_module
+cd drink_module
+touch coffee.txt tea.txt
+
+Giải thích từng lệnh:
+1. mkdir drink_module   : Sử dụng lệnh mkdir để tạo thư mục mới tên là drink_module
+2. cd drink_module      : Sử dụng lệnh cd để di chuyển thư mục làm việc hiện tại vào drink_module
+3. touch coffee.txt tea.txt : Sử dụng lệnh touch tạo đồng thời 2 file trống tên coffee.txt và tea.txt
+
+
+ PHƯƠNG ÁN 2: HỆ ĐIỀU HÀNH WINDOWS (POWERSHELL)
+ 
+Hệ điều hành: Windows (PowerShell)
+
+Đoạn kịch bản hoàn chỉnh:
+
+mkdir drink_module
+cd drink_module
+New-Item -ItemType File coffee.txt, tea.txt
+
+Giải thích từng lệnh:
+1. mkdir drink_module   : Trong PowerShell, mkdir là alias (tên ngắn) của New-Item -ItemType Directory để tạo thư mục
+2. cd drink_module      : Lệnh cd di chuyển vào thư mục drink_module
+3. New-Item -ItemType File coffee.txt, tea.txt : Lệnh New-Item với loại item là File giúp tạo 2 file trống cùng lúc
