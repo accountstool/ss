@@ -1,0 +1,24 @@
+PHẦN 1: PHÂN TÍCH LỖI SAI TRONG CÁC CÂU LỆNH CỦA NAM 
+1. Lỗi 1: Thao tác với tên thư mục chứa khoảng trắng không dùng dấu ngoặc kép.
+   - Hiện trạng: Nam gõ mkdir Smart Farm Project và cd Smart Farm Project
+   - Nguyên nhân: Trong PowerShell, các tham số phân tách nhau bằng khoảng trắng. Khi không dùng dấu ngoặc kép ("..."), PowerShell sẽ hiểu "Smart", "Farm", và "Project" là 3 tham số độc lập. Do đó:
+     + Lệnh mkdir Smart Farm Project bị hiểu nhầm là yêu cầu tạo 3 thư mục riêng biệt tên là "Smart", "Farm", và "Project"
+     + Lệnh cd Smart Farm Project bị lỗi vì lệnh cd không nhận nhiều đường dẫn cùng lúc theo cách này
+
+2. Lỗi 2: Sử dụng đường dẫn thư mục lồng nhau dùng dấu gạch chéo ngược chuẩn Linux/Unix hoặc không bao đóng chuỗi.
+   - Hiện trạng: Nam gõ mkdir src/sensors/temperature
+   - Nguyên nhân: Dù PowerShell hiện đại hỗ trợ đường dẫn dấu /, việc không bọc ngoặc kép hoặc dùng cú pháp chưa chuẩn trong một số môi trường PowerShell truyền thống khi thao tác đường dẫn lồng nhau có thể gây ra lỗi xử lý ký tự phân cách thư mục, khiến PowerShell không nhận diện chính xác đường dẫn con cần tạo tự động.
+
+
+PHẦN 2: HOÀN THIỆN VÀ TỐI ƯU CHUỖI LỆNH POWERSHELL 
+Để khởi tạo toàn bộ cấu trúc thư mục bao gồm "Smart Farm Project" và thư mục con "src/sensors/temperature" chuẩn xác và tối ưu nhất, có các phương án sau:
+
+CÁCH 1: Tối ưu nhất (Chỉ 1 dòng lệnh duy nhất) 
+New-Item -Path "Smart Farm Project\src\sensors\temperature" -ItemType Directory -Force
+
+ Giải thích: Lệnh New-Item với tham số -Force sẽ tự động tạo thư mục gốc "Smart Farm Project" cùng toàn bộ các thư mục con lồng nhau bên trong (src -> sensors -> temperature) chỉ trong 1 thao tác mà không cần di chuyển thư mục (cd).
+
+CÁCH 2: Sửa lại chuẩn xác theo từng bước của Nam 
+mkdir "Smart Farm Project"
+cd "Smart Farm Project"
+mkdir "src\sensors\temperature"
