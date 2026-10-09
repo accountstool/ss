@@ -1,0 +1,60 @@
+
+
+I. PHÂN TÍCH LUỒNG IPO 
+1. Input:
+   - Đường dẫn thư mục Home của người dùng
+   - Đường dẫn file cấu hình mẫu: C:\Users\Public\template.ps1
+   - Mật Khẩu cảm biến
+   - Quyền truy cập hệ thống User hoặc Admin
+
+2. Process:
+   - Tạo thư mục dự án cùng lúc các thư mục con bằng các đường dẫn lồng nhau trong PowerShell 
+   - Tạo file .env dưới dạng file ẩn và giải thích cơ chế quản lý file ẩn/hệ thống của PowerShell
+   - Thực hiện sao chép file kết hợp đổi tên đồng thời chỉ trong 1 lệnh duy nhất bằng cmdlet Copy-Item
+   - Duyệt và liệt kê cấu trúc thư mục đệ quy bằng Get-ChildItem kết hợp cờ -Force để kiểm tra file ẩn
+   - Đưa ra giải pháp nâng quyền Quản trị viên Run as Administrator khi gặp lỗi phân quyền Access to the path is denied
+
+3. Output:
+   - Cấu trúc thư mục ~/smart-farm/ gồm 3 thư mục con: bin, config, data
+   - File ~/.env nằm trong ~/smart-farm/config/ chứa thông tin mật khẩu
+   - File ~/smart-farm/bin/pump_control.ps1 được sao chép và đổi tên thành công từ template.ps1
+   - Nhật ký ghi lại toàn bộ lịch sử các lệnh đã thực thi thành công
+
+
+II. NHẬT KÝ (LOG) CÁC CÂU LỆNH POWERSHELL THỰC HIỆN
+
+Bước 1: Tạo thư mục smart-farm chứa bin, config, data bằng 1 dòng lệnh
+Lệnh:
+New-Item -Path "~\smart-farm\bin", "~\smart-farm\config", "~\smart-farm\data" -ItemType Directory -Force
+
+
+Bước 2: Tạo file ẩn .env trong config & giải thích 
+Lệnh tạo file:
+New-Item -Path "~\smart-farm\config\.env" -ItemType File -Value "Pass_W=SecretPassword123"
+
+Giải thích:
+Get-ChildItem thông thường không nhìn thấy file .env vì trong win/powershell, các file bắt đầu bằng dấu chấm (.) hoặc có thuộc tính hidden/system được coi là file ẩn để tránh làm rối không gian làm việc hoặc tránh người dùng vô tình chỉnh sửa các file cấu hình hệ thống. Để hiển thị file .env, cần bổ sung tham số -Force
+
+Bước 3: Sao chép template.ps1 từ public vào bin và đổi tên thành pump_control.ps1 
+Lệnh:
+Copy-Item -Path "C:\Users\Public\template.ps1" -Destination "~\smart-farm\bin\pump_control.ps1"
+
+
+Bước 4: Kiểm tra lại toàn bộ cấu trúc thư mục smart-farm
+Lệnh:
+Get-ChildItem -Path "~\smart-farm" -Recurse -Force
+
+III. GIẢI PHÁP XỬ LÝ LỖI RÀNG BUỘC (ACCESS TO THE PATH IS DENIED)
+
+Nếu gặp lỗi "Access to the path is denied" ở bước sao chép file do thiếu quyền truy cập vào thư mục đích, các phương án xử lý để chạy với quyền Administrator trong PowerShell gồm:
+
+1. Chạy Terminal/PowerShell dưới quyền Administrator:
+   - Nhấn phím Windows, gõ "PowerShell".
+   - Nhấp chuột phải vào Windows PowerShell và chọn Run as administrator
+
+2. Chạy lệnh nâng quyền trực tiếp trong phiên làm việc hiện tại:
+   Khởi chạy một phiên PowerShell mới với quyền Quản trị viên bằng lệnh:
+   Start-Process powershell -Verb RunAs
+
+3. Bỏ thuộc tính Read-Only/Blocked (nếu lỗi do file bị khóa quyền):
+   Unblock-File -Path "C:\Users\Public\template.ps1"
