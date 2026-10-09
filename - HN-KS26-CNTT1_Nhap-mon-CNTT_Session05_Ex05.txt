@@ -1,0 +1,51 @@
+
+I. SƠ ĐỒ LUỒNG THAO TÁC IPO 
+1. INPUT :
+   - Thư mục làm việc: ~/Downloads/
+   - Dữ liệu thô gồm các tệp/thư mục:
+     + Tệp hình ảnh: *.png, *.jpg
+     + Tệp mã nguồn: *.py
+     + Tệp tạm hệ thống: *.tmp
+     + Thư mục đích: media/, scripts/  
+     + Các thư mục hoặc tệp đặc biệt khác  
+
+2. PROCESS  :
+   - Đảm bảo các thư mục đích (media/, scripts/) đã tồn tại trước khi di chuyển.
+   - Kiểm tra loại đối tượng (chỉ thao tác trên tệp tin thường "-f", bỏ qua thư mục để tránh lỗi "Is a directory").
+   - Phân loại và thực thi xử lý dựa trên phần mở rộng (đuôi tệp):
+     + Nếu là tệp .png hoặc .jpg -> Chuyển vào thư mục media/
+     + Nếu là tệp .py         -> Chuyển vào thư mục scripts/
+     + Nếu là tệp .tmp        -> Xóa khỏi hệ thống
+
+3. OUTPUT :
+   - Thư mục media/ chứa toàn bộ tệp hình ảnh (.png, .jpg).
+   - Thư mục scripts/ chứa toàn bộ tệp mã nguồn (.py).
+   - Giải phóng dung lượng ổ đĩa do toàn bộ tệp tạm (.tmp) đã bị xóa.
+   - Thư mục Downloads sạch sẽ, không bị treo/crash do lỗi trùng tên thư mục.
+
+
+II. PHÂN TÍCH VÀ XỬ LÝ RÀNG BUỘC (EDGE CASE) 
+1. Nguyên nhân lỗi "Is a directory":
+   - Khi dùng ký tự đại diện wildcard (ví dụ: mv *.png media/), nếu trong thư mục có một thư mục con tên là "test.png", Terminal sẽ hiểu "test.png" là một file và cố di chuyển/xóa nó, dẫn đến báo lỗi "Is a directory".
+
+2. Giải pháp xử lý đơn giản, an toàn cho Robot:
+   - Bước 1: Tạo trước các thư mục đích (media/, scripts/) để lệnh mv không hiểu nhầm thư mục đích là file.
+   - Bước 2: Kiểm tra danh sách file trước khi thao tác (dùng ls) hoặc chỉ di chuyển/xóa chính xác các file rác, tránh chỉ định nhầm vào thư mục trùng tên.
+   - Bước 3: Đảm bảo không dùng cờ xóa đệ quy (-r) với rm để tránh vô tình xóa mất thư mục.
+
+
+III. DANH SÁCH CÂU LỆNH KỊCH BẢN CHO ROBOT (SỬ DỤNG LỆNH CƠ BẢN)
+
+
+ Bước 1: Tạo các thư mục chứa dữ liệu 
+mkdir -p media scripts
+
+ Bước 2: Gom các file ảnh (.png, .jpg) vào thư mục media/ 
+mv *.png media/
+mv *.jpg media/
+
+ Bước 3: Gom các file mã nguồn (.py) vào thư mục scripts/
+mv *.py scripts/
+
+  Bước 4: Xóa các file tạm (.tmp) để giải phóng dung lượng 
+rm *.tmp
