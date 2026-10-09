@@ -1,5 +1,5 @@
 	⁃	INPUT 
-	⁃	           -  Các thư mục tager smart-farm\data\logs, smart-farm\code, backup\code_v1
+	⁃	          -  Các thư mục tager smart-farm\data\logs, smart-farm\code, backup\code_v1
 	⁃	          -  Các file config.json, sensors.py, .env
 	⁃	PROCESS
 	⁃	.         - Khởi tạo các thư mục bằng lệnh mkdir hoặc New-Item để khởi tạo thư mục, New-Item hoặc touch để khởi tạo file
@@ -20,5 +20,4 @@
 Các lệnh PowerShell :
 	•	  mkdir -p “smart-farm\data\logs”,  “smart-farm\code”
 	•	  ni -ít f -f -Path “smart-farm\code\config.json”, “smart-farm\code\sensors.py”, “smart-farm\code\.env”
-	• 
-                                              	cp smart-farm/code backup/code_v1 -r -f
+	•     cp smart-farm/code backup/code_v1 -r -f
