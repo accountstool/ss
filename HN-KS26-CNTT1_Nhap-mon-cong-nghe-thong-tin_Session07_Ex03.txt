@@ -1,0 +1,13 @@
+1.
+Bước 1 : Get-Content: Đọc file access.log rồi đẩy dữ liệu ra luồng đầu ra chuẩn.
+
+Kênh nối 1 (|): Hứng stdout của bước 1 để nạp vào đầu vào cho bước 2
+
+Bước 2: Nhận dữ liệu từ stdin, nhặt riêng các dòng có chữ "TIMEOUT" rồi xả tiếp ra stdout
+
+Kênh nối 2 (|): Hứng stdout của bước 2 nạp làm stdin cho bước 3
+
+Bước 3 : Nhận stdin, đếm xem có tổng cộng bao nhiêu dòng rồi lấy ra đúng con số đó
+
+2.
+Lệnh PowerShell tiếp nối bước 3 : Get-Content access.log | Select-String -Pattern "TIMEOUT" | Measure-Object -Line).Lines
