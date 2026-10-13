@@ -1,0 +1,7 @@
+1. 
+- Notepad chỉ là 1 trình soạn thảo văn bản cơ bản nên nếu mở trực tiếp file 500MB đó là 1 lượng dữ liệu khổng lồ sẽ khiến cho app không thể tải nổi và gây ra tình trạng đơ và crash app
+- cat server_log_500MB.log
+lệnh này của nam là mở toàn bộ file có dung lượng 500MB nên nó sẽ không ngừng đọc và tải ra toàn bộ dữ liệu cho tới khi xong 
+2.
+- Để xem toàn bộ file theo từng trang ta sử dụng lệnh : cat server_log_500MB.log | more
+- Để xem 10 dòng cuối để tìm lỗi mới nhất ta dùng lệnh : cat server_log_500MB.log -Tail 10
