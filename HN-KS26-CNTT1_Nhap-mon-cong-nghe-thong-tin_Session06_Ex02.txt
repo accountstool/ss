@@ -1,0 +1,5 @@
+1.
+An bị nhầm lẫn tác dụng của Get-ChildItem và Select-String
+- Get-ChildItem bản chất là tìm tên file và tên thư mục còn Select-String mới là tìm nội dung trong file
+2.
+Lệnh PowerShell chuẩn để lọc các dòng chứa chữ "ERROR" từ file access.log, và hiển thị kèm số dòng : Select-String -Path .\access.log -Pattern "ERROR"
