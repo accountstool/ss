@@ -1,0 +1,15 @@
+Xác định 4 khối cấu trúc chính trong tệp PowerShell Script (.ps1):
+
+Header block:
+Dùng các dòng ghi chú # ở đầu file để lưu lại thông tin script (tên script, tác giả, ngày tạo và mô tả mục đích).
+
+Biến cấu hình:
+Sử dụng biến dạng $variable để khai báo các đường dẫn cố định cho file log đầu vào và file báo cáo đầu ra, giúp dễ bảo trì và thay đổi sau này.
+Ví dụ: $logFile = "server.log", $reportFile = "report.txt".
+
+Thông báo tiến trình:
+Dùng lệnh Write-Host để xuất các thông báo trạng thái trực tiếp ra màn hình Terminal giúp người dùng theo dõi tiến trình chạy, các dòng này hoàn toàn không bị đẩy vào tệp kết quả.
+
+Logic xử lý:
+Tạo dòng tiêu đề === HE THONG TU DONG LOC LOG === ghi vào file báo cáo.
+Dùng lệnh Get-Content đọc file log đẩy qua Pipeline | sang Select-String "404" để lọc lỗi, dùng >> hoặc Add-Content để ghi nối tiếp kết quả vào file báo cáo.
