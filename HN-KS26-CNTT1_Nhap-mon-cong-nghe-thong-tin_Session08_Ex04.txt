@@ -1,0 +1,43 @@
+
+1. BẢNG SO SÁNH CHI TIẾT:
+
+[Tiêu chí]             : Toán tử ghi đè ( > )
+- Cơ chế hoạt động     : Là alias của Out-File. Xóa sạch toàn bộ nội dung cũ của file
+                         rồi mới ghi dữ liệu mới vào (Ghi đè nội dung)
+- Rủi ro mất dữ liệu   : Cực kỳ cao. Nếu file đã có dữ liệu từ trước sẽ bị đè mất hoàn 
+                         toàn và không thể khôi phục
+- Ngữ cảnh thực tế     : Phù hợp khi cần làm sạch báo cáo cũ hoặc khởi tạo lại file mới
+                         từ đầu (ví dụ: làm báo cáo mới vào đầu ca sáng).
+- Encoding file đầu ra : Mặc định xuất file chuẩn UTF-16 qua Out-File.
+
+
+[Tiêu chí]             : Toán tử ghi nối tiếp ( >> )
+- Cơ chế hoạt động     : Là alias của Out-File -Append. Giữ nguyên dữ liệu cũ và chèn 
+                         thêm nội dung mới vào cuối file (Ghi tiếp nối)
+- Rủi ro mất dữ liệu   : Thấp. Nội dung cũ vẫn còn nguyên, dữ liệu mới chỉ nối thêm 
+                         vào sau.
+- Ngữ cảnh thực tế     : Phù hợp cho hệ thống theo dõi 24/7, ghi log liên tục theo thời 
+                         gian thực mà không làm mất lịch sử
+- Encoding file đầu ra : Giữ nguyên encoding cũ của file hoặc tạo mới theo chuẩn UTF-16
+
+PHẦN 2:  Giải pháp tối ưu
+
+1. GIẢI PHÁP ĐỀ XUẤT:
+Để ghi nhật ký lỗi phát sinh liên tục trong ngày mà vừa không lo mất dữ liệu, vừa tránh 
+bị lỗi font chữ khi mở trên các công cụ khác, giải pháp tối ưu nhất là dùng Add-Content 
+hoặc Out-File -Append kết hợp ép chuẩn encoding UTF-8
+
+2. CÚ PHÁP THỰC THI (CHỌN 1 TRONG 2 CÁCH):
+
+Cách 1 :
+Get-Content server.log | Select-String "ERROR" | Add-Content -Path daily_report.txt -Encoding utf8
+
+Cách 2:
+Get-Content server.log | Select-String "ERROR" | Out-File -FilePath daily_report.txt -Append -Encoding utf8
+
+3. LÝ DO LỰA CHỌN:
+- Bảo vệ dữ liệu: Cả hai cách đều nối tiếp dữ liệu vào cuối file, giúp 
+  lưu giữ toàn bộ lịch sử log liên tục 24/7 mà không bị ghi đè.
+- Chuẩn hóa Encoding: Việc ép kiểu -Encoding utf8 giúp file không bị lỗi hiển thị ký 
+  tự như font tiếng Việt hoặc các ký tự đặc biệt khi mở bằng bất kỳ phần mềm hay 
+  trình đọc log nào trên Windows, Linux hay macOS.
