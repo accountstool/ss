@@ -1,0 +1,6 @@
+1.
+- An bị nhầm lẫn giữa Get-ChildItem và Select-String
++ Get-ChildItem là dùng để quét tìm kiếm tên các tệp tin/ thư mục 
++ Select-String là dùng để quét nội dung của 1 file nào đó để tìm kiếm nội dung trong file
+2.
+Lệnh chuẩn để tìm kiếm error : Select-String -Path .\access.log -Pattern "error"
