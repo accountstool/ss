@@ -1,0 +1,8 @@
+1. 
+- Máy tính bị "Not Responding" khi mở bằng Notepad vì notepad chỉ là 1 trình chỉnh sửa văn bản cơ bản nếu sử dụng notepad để mở tệp tin 800MB là 1 tệp dung lượng lớn sẽ gây ra tình trạng app bị treo / crash
+- Lệnh cat bị lỗi ở cmd và hoạt động ở powershell vì cat là lệnh có sẵn trong PowerShell alias của Get-Content, nhưng không tồn tại trong CMD truyền thống
+2.
+Lệnh xem toàn bộ nội dung file :
+gc server_log_800MB.log | more  hoặc gc server_log_800MB.log
+Lệnh xem 10 dòng cuối :
+gc server_log_800MB.log -Tail 10
