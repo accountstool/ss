@@ -1,0 +1,2 @@
+1. Sơ đồ luồng : Đọc tệp log ➔ Lọc từ khóa (lọc TIMEOUT và loại bỏ NOT TIMEOUT) ➔ Đếm kết quả (đếm số từ khoá TIMEOUT)
+2.Lệnh PowerShell hoàn chỉnh : (Get-Content access.log | Select-String "TIMEOUT" | Where-Object { $_ -notmatch "NOT TIMEOUT" }).Count
