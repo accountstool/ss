@@ -26,7 +26,6 @@ Chia file README.md thành 5 phần bằng cú pháp Markdown:
 
 4. Source code file README.md
 
---- BẮT ĐẦU NỘI DUNG FILE README.MD ---
 
 # CLB LẬP TRÌNH PTIT (PROCLUB)
 
@@ -82,7 +81,7 @@ Môi trường học tập và rèn luyện kỹ năng lập trình dành cho si
 
 ## 5. Lưu ý quan trọng
 
-> ⚠️ **DEADLINE SETUP:** 23h59 Chủ Nhật tuần này.
+>  **DEADLINE SETUP:** 23h59 Chủ Nhật tuần này.
 > 
 > **Quy tắc ứng xử:**
 > - Tôn trọng mọi người, trao đổi lịch sự trong nhóm chat.
