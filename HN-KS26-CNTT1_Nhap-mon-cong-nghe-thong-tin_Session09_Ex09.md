@@ -88,10 +88,9 @@ Môi trường học tập và rèn luyện kỹ năng lập trình dành cho si
 > - Tuân thủ đúng quy trình Git khi làm việc nhóm.
 > - Gặp khó khăn hay bị lỗi thì nhắn hỏi ngay, không giấu.
 
---- HẾT NỘI DUNG FILE README.MD ---
 
 
-5. Trả lời 2 bẫy dữ liệu
+5. Trả lời bẫy dữ liệu
 
 - Bẫy 1: 
 Nếu chỉ viết email dạng chữ thường như `tech@ptit.edu.vn` thì khi click vào sẽ không có tác dụng gì. Phải bọc dạng `[tech.proclub@ptit.edu.vn](mailto:tech.proclub@ptit.edu.vn)` thì khi bấm vào, trình duyệt mới hiểu đây là giao thức gửi thư và tự mở ứng dụng Mail (như Outlook, Gmail...) trên thiết bị để tạo sẵn thư gửi tới địa chỉ đó.
