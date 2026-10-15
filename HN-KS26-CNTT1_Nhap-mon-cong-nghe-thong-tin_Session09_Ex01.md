@@ -1,4 +1,5 @@
 Phần 1
+
 Sai lầm 1: Xem file .docx như một định dạng lưu trữ tài liệu mã nguồn/dự án
 - File .docx thực chất là một tệp nén chứa nhiều file XML, style, hình ảnh và metadata định dạng bên trong
 - Do đó Git không thể đọc trực tiếp nội dung bên trong, dẫn đến việc không thể hiển thị bản xem trước trực tiếp trên giao diện web GitHub.
