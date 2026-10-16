@@ -1,0 +1,9 @@
+phần 1 phân tích sai lầm và độ an toàn của markdown
+1 hai sai lầm trong tư duy của nam khi dùng file docx
+
+sai lầm 1: coi file .docx là định dạng phù hợp để lưu trữ tài liệu mã nguồn và quản lý phiên bản với git. file .docx thực chất là một tệp nén nhị phân (binary) chứa nhiều file xml, style và hình ảnh bên trong. git không thể đọc hay so sánh nội dung từng dòng bên trong (git diff), dẫn đến việc github không render xem trực tiếp được trên web. mỗi lần nam sửa dù chỉ một dấu phẩy, cấu trúc xml bị xáo trộn làm git báo xung đột (conflict) toàn bộ file.   
+sai lầm 2: nhầm lẫn giữa sự rườm rà về trình bày với tính chuyên nghiệp trong quản lý dự án. nam cho rằng markdown chỉ là văn bản thô nên không chuyên nghiệp. tuy nhiên trong phát triển phần mềm, tính chuyên nghiệp nằm ở tính tương thích cao, nhẹ, đọc được trên mọi nền tảng và dễ quản lý phiên bản cộng tác nhóm.   
+
+2 giải thích tại sao markdown an toàn và nhẹ hơn
+tính an toàn chống hư hại file (bẫy dữ liệu): file .docx là tệp nén, nếu bị lỗi mạng làm mất chỉ 1 byte dữ liệu thì toàn bộ tệp nén bị hỏng hoàn toàn và không thể mở được file. ngược lại, markdown là văn bản thô plain text, nếu mất 1 byte thì chỉ bị mất đúng 1 ký tự tại vị trí đó, toàn bộ nội dung còn lại của tài liệu vẫn đọc và khôi phục được bình thường   
+dung lượng siêu nhẹ: markdown chỉ lưu ký tự văn bản thuần túy không kèm mã định dạng phức tạp hay file xml ẩn, giúp dung lượng file chỉ vài kb, tối ưu tốc độ tải và lưu trữ trên repository
