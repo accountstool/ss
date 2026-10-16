@@ -1,0 +1,10 @@
+phần 1 phân tích hệ thống
+
+1 input và output của hệ thống smart farm
+input (đầu vào): dữ liệu thu thập từ các cảm biến nhiệt độ, độ ẩm không khí, độ ẩm đất và ánh sáng
+
+process (xử lý): vi xử lý soc nhận dữ liệu, phân tích theo ngưỡng thiết lập và ra lệnh
+output (đầu ra): tín hiệu kích hoạt rơ-le (relay) để bật/tắt máy bơm phun sương, quạt thông gió hoặc đèn bổ sung
+
+2 sơ đồ phối hợp phần cứng
+cảm biến -> gateway / soc trung tâm -> bộ điều khiển relay -> thiết bị ngoại vi (máy bơm, quạt)
