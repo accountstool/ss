@@ -1,0 +1,22 @@
+
+1. Phân tích lỗi 7 dòng tiêu đề:
+- Do toàn bộ 7 dòng đang để style gốc là Normal, chỉ bôi đen chỉnh thủ công (cỡ chữ, màu sắc, in đậm)
+- Auto TOC của Word chỉ quét các đoạn văn bản được gán nhãn Heading Styles (H1, H2, H3) trong cây cấu trúc chứ không quét giao diện bề ngoài. Do đó Word thấy không có Heading nào nên xuất ra mục lục rỗng
+
+2. Lỗi nhầm cấp Heading ở dòng 2.1.1:
+- Mỗi cấp Heading quy định 1 khoảng thụt lùi đầu dòng (indentation) trong mục lục
+- Nếu gán nhầm dòng 2.1.1 sang H2 thì nó bị nằm ngang hàng lề với dòng cha 2.1, người đọc nhìn vào không phân biệt được đâu là mục lớn đâu là tiểu ban con
+
+3. Các bước sửa 7 dòng tiêu đề:
+- Dòng "1. Thông tin chung hội nghị": bấm Ctrl + Alt + 1 (gán H1)
+- Dòng "1.1. Tên hội nghị": bấm Ctrl + Alt + 2 (gán H2)
+- Dòng "1.2. Thời gian & địa điểm": bấm Ctrl + Alt + 2 (gán H2)
+- Dòng "2. Cơ cấu ban tổ chức": bấm Ctrl + Alt + 1 (gán H1)
+- Dòng "2.1. Ban Nội dung": bấm Ctrl + Alt + 2 (gán H2)
+- Dòng "2.1.1. Tiểu ban Kỹ thuật": bấm Ctrl + Alt + 3 (gán H3)
+- Dòng "3. Lịch trình sự kiện": bấm Ctrl + Alt + 1 (gán H1)
+- Sau đó vào tab References -> Table of Contents -> chọn Automatic Table để xuất mục lục 3 cấp
+
+4. Xử lý khi bị nhảy trang (trang 2 sang trang 4):
+- Mục lục sẽ không tự cập nhật số trang mới nếu không thao tác thêm
+- Thao tác sửa: Click chuột phải vào mục lục chọn Update Field (hoặc chọn mục lục rồi bấm F9) -> chọn Update page numbers only -> OK
