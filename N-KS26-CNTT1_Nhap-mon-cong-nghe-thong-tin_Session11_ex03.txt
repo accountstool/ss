@@ -1,0 +1,33 @@
+
+ PHẦN 1: PHÂN TÍCH 4 THAM SỐ CỦA HÀM VLOOKUP
+
+Để tự động tra dữ liệu từ sheet Danh_Muc sang sheet Don_Hang, 4 tham số của VLOOKUP được xác định như sau:
+
+1. Lookup_value - Giá trị tra cứu:
+- Là mã linh kiện tại sheet Don_Hang cần mang đi tìm (ô A2)
+- Do đề bài bảo có bẫy khoảng trắng thừa ở cuối mã nên dùng thêm hàm TRIM(A2) để xóa cách thừa trước khi tra cứu
+
+2. Table_array (Bảng chứa dữ liệu tra cứu):
+- Là vùng bảng tra nằm ở sheet Danh_Muc chứa thông tin mã, tên và đơn giá (ví dụ: Danh_Muc!$A$2:$C$101)
+- Bắt buộc phải bấm F4 để cố định tuyệt đối dấu $ cho vùng tra. Nếu quên dấu $ thì khi kéo công thức xuống các dòng dưới bảng tra sẽ bị trượt dòng gây ra lỗi #N/A hàng loạt
+
+3. Col_index_num Thứ tự cột lấy dữ liệu:
+- Tính từ cột mã linh kiện (cột A là cột 1):
+  + Lấy Tên linh kiện: điền số 2
+  + Lấy Đơn giá: điền số 3
+
+4. Range_lookup Chế độ tìm kiếm:
+- Điền FALSE (hoặc 0) để chọn chế độ tìm kiếm chính xác 100%
+
+
+ PHẦN 2: TRIỂN KHAI CÔNG THỨC HOÀN CHỈNH
+
+Công thức viết tại dòng 2 của sheet Don_Hang, đã dùng TRIM để xóa khoảng trắng thừa và IFERROR để xử lý lỗi #N/A khi không thấy mã:
+
+1. Công thức điền Tên linh kiện (tại ô B2):
+=IFERROR(VLOOKUP(TRIM(A2), Danh_Muc!$A$2:$C$101, 2, FALSE), "Không tìm thấy")
+
+2. Công thức điền Đơn giá (tại ô C2):
+=IFERROR(VLOOKUP(TRIM(A2), Danh_Muc!$A$2:$C$101, 3, FALSE), 0)
+
+Sau khi gõ xong chỉ cần tích kép chuột ở góc dưới ô để autofill kéo xuống hết 100 dòng là xong.
