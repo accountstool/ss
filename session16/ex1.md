@@ -2,7 +2,7 @@
 ## Phần 1. BÁO CÁO PHÂN TÍCH 
 
 ### 1. Luồng dữ liệu & Xử lý bẫy/xung đột
-
+```mermaid
 flowchart LR
     A[Ctrl + S] --> B(Lưu vào Folder Sync)
     B --> C{Sync Engine}
@@ -11,7 +11,7 @@ flowchart LR
     D -->|Internet| F[Block Level Sync]
     F -->G(Cloud Storage)
     G -->H([Tạo Version History])
-  
+  ```
 * Xử lý xung đột phiên bản: Khi 2 người cùng sửa offline rồi sync, hệ thống áp dụng cơ chế Forking để không ghi đè file, tự động tạo bản sao xung đột có chứa tên người dùng và ngày giờ. Trưởng nhóm hoặc Designer sẽ mở đối chiếu và chốt bản chuẩn.
 
 ### 2. Phương án khôi phục bằng Version History
