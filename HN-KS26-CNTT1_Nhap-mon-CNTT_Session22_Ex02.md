@@ -4,7 +4,7 @@ Thư viện mới cài xong đã lỗi, StackOverflow không có gì, GitHub Iss
 
 ## 1. Ưu tiên đọc bình luận nào
 
-Đọc trước những comment có nhiều Reactions, tức là dưới comment đó có đông người bấm trái tim hay thumbs up. Reactions đơn giản là cách cộng đồng xác nhận không lời: ai làm theo chạy được thì quay lại bấm một phát, nên comment nhiều biểu cảm gần như chắc chắn là giải pháp đúng, khác hẳn kiểu comment "xóa đi cài lại" mà chẳng ai bấm gì. Xong phần biểu cảm thì dành thêm một giây xem chính người viết thư viện (maintainer) có lên tiếng không, họ bảo gì thì nghe theo trước.
+Đọc trước những comment có nhiều Reactions, tức là dưới comment đó có đông người bấm trái tim hay thumbs up. Reactions đơn giản là cách cộng đồng xác nhận không lời: ai làm theo chạy được thì quay lại bấm một phát, nên comment nhiều biểu cảm gần như chắc chắn là giải pháp đúng, khác hẳn kiểu comment "xóa đi cài lại" mà chẳng ai bấm gì. Xong phần biểu cảm thì dành thêm một giây xem chính người viết thư viện có lên tiếng không, họ bảo gì thì nghe theo trước.
 
 ## 2. Workaround là gì và vì sao đừng đợi nhà sản xuất
 
