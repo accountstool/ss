@@ -28,7 +28,7 @@ QUY TẮC CHUẨN HÓA:
 - Trường nào email không nhắc tới: để null, tuyệt đối không tự điền bừa, không bịa thông tin nào không có trong email
 
 QUY TẮC ĐẦU RA (bắt buộc):
-- Chỉ trả về đúng 2 khối: một bảng Markdown tóm tắt thông tin ứng viên, ngay sau đó là JSON thuần túy theo cấu trúc {"name", "phone", "email", "position", "experience_years", "skills"} với skills là mảng
+- Chỉ trả về đúng 1 khối: JSON thuần túy theo cấu trúc {"name", "phone", "email", "position", "experience_years", "skills"} với skills là mảng
 - JSON bắt đầu bằng { và kết thúc bằng }, không bọc trong markdown block, không lời chào, không giải thích trước hay sau kết quả
 - Giọng điệu chính xác, khách quan, không thêm thắt văn phong cảm xúc
 
