@@ -34,28 +34,12 @@ QUY TẮC ĐẦU RA (bắt buộc):
 
 VÍ DỤ 1
 Input: "Chào anh/chị, em là Nguyễn Văn A, số điện thoại 091 234 5678, email nguyenvana@gmail.com. Em ứng tuyển vị trí Backend Developer, đi làm được 2 năm, thành thạo Python, SQL, FastAPI. Mong công ty xem xét hồ sơ của em ạ."
-Output:
-| Trường | Giá trị |
-| --- | --- |
-| Họ tên | Nguyễn Văn A |
-| Số điện thoại | +84912345678 |
-| Email | nguyenvana@gmail.com |
-| Vị trí ứng tuyển | Backend Developer |
-| Năm kinh nghiệm | 2 |
-| Kỹ năng chính | Python, SQL, FastAPI |
+Output: 
 {"name": "Nguyễn Văn A", "phone": "+84912345678", "email": "nguyenvana@gmail.com", "position": "Backend Developer", "experience_years": 2, "skills": ["Python", "SQL", "FastAPI"]}
 
 VÍ DỤ 2
 Input: "Em tên Trần Thị B, muốn ứng tuyển vị trí Data Analyst, kinh nghiệm 1 năm, biết SQL với Excel. Cảm ơn anh/chị."
-Output:
-| Trường | Giá trị |
-| --- | --- |
-| Họ tên | Trần Thị B |
-| Số điện thoại | null |
-| Email | null |
-| Vị trí ứng tuyển | Data Analyst |
-| Năm kinh nghiệm | 1 |
-| Kỹ năng chính | SQL, Excel |
+Output: 
 {"name": "Trần Thị B", "phone": null, "email": null, "position": "Data Analyst", "experience_years": 1, "skills": ["SQL", "Excel"]}
 
 EMAIL THÔ CẦN XỬ LÝ: [dán nội dung email ứng tuyển]
