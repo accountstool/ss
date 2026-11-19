@@ -21,9 +21,7 @@ Chỉ dùng gạch đầu dòng. Không chào hỏi, không mở đầu, không 
 |-----------------------|------------------------|------------------------|
 | Độ dễ hiểu            | Cao                    | Trung bình             |
 | Tốn token             | Ít                     | Nhiều hơn              |
-| Chặn lỗi biên         | Trung bình             | Cực tốt                |
-| Khả năng sạch chữ thừa| Thấp                   | Rất cao                |
-| Phù hợp báo cáo học tập| Trung bình            | Cao                    |
+| Chặn lỗi biên         | Trung bình             | Cực tốt                | 
 
 ### Bước 3 – Lựa chọn & chạy thử
 
